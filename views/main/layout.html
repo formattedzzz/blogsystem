@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>myblog</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" type="text/css" href="/public/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/index.css">
+    <script type="text/javascript" src="/public/js/jquery.js"></script>
+    <script type="text/javascript" src="/public/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/public/js/index.js"></script>
+</head>
+<body>
+<header>
+    <div class="container-fluid header1">
+        <span>基于express及mongoDB搭建的博客系统</span>
+    </div>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <ul class="nav navbar-nav">
+                    {%if category == ''%}
+                    <li><a href="/" class="focus">首页</a></li>
+                    {%else%}
+                    <li><a href="/">首页</a></li>
+                    {%endif%}
+                    {%for cate in categories%}
+                    {%if category == cate.id%}
+                    <li><a href="/?category={{cate.id}}" class="focus">{{cate.name}}</a></li>
+                    {%else%}
+                    <li><a href="/?category={{cate.id}}">{{cate.name}}</a></li>
+                    {%endif%}
+                    {%endfor%}
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
+
+</header>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 moveup" id="content">
+
+                {% block content %}
+                {% endblock %}
+
+            </div>
+
+
+            <div class="col-lg-4 col-md-4" >
+                {% if userInfo._id %}
+                <div class="userinfo spindown" id="userinfo" >
+                    <h2>用户信息</h2>
+                    <h3 class="account">用户名：{{userInfo.username}}</h3>
+                    {% if userInfo.isadmin %}
+                    <p>尊敬的管理员! <a href="/admin/"> 点击这里</a>进入管理页面</p>
+                    {% else %}
+                    <p>你好，欢迎光临我的博客！</p>
+                    {% endif %}
+                    <p><a href="javascript:;" class="logout">退出</a></p>
+                </div>
+                {% else %}
+                <div class="register spindown" id="register"  style="display: none">
+                    <h2>注册</h2>
+                    <div class="line">
+                        <span>用户名:</span>
+                        <input type="text" name="username" title="username">
+                    </div>
+                    <div class="line">
+                        <span>密码:</span>
+                        <input type="password" name="password" title="password">
+                    </div>
+                    <div class="line">
+                        <span>确认:</span>
+                        <input type="password" name="repassword" title="repassword">
+                    </div>
+                    <div class="line">
+                        <input type="submit" name="submit" value="注册" >
+                    </div>
+                    <p class="warning"></p>
+                    <p>已有账号? <a href="javascript:;">点击登录</a></p>
+                </div>
+
+                <div class="login spindown" id="login" >
+                    <h2>登录</h2>
+                    <div class="line">
+                        <span>用户名:</span>
+                        <input type="text" name="username" title="username">
+                    </div>
+                    <div class="line">
+                        <span>密码:</span>
+                        <input type="password" name="password" title="password">
+                    </div>
+                    <div class="line">
+                        <input type="submit" name="submit" value="登录" >
+                    </div>
+                    <h2 class="warning"></h2>
+                    <p>还没注册? <a href="javascript:;">点击注册</a></p>
+                </div>
+                {% endif %}
+                <div id="community">
+                    <h2>社区</h2>
+                    <h3><a href="https://github.com/formattedzzz" target="_blank">github</a></h3>
+                    <h3><a href="https://juejin.im/timeline" target="_blank">掘金</a></h3>
+                    <h3><a href="https://maruan.xyz" target="_blank">关于博主</a></h3>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+<footer>
+    <p>Copyright © 鸡公坑驿站 | 京ICP备11008151号 | 京公网安备11010802014853</p>
+    <a href="#"><span class="glyphicon glyphicon-arrow-up"></span></a>
+</footer>
+</body>
+
+</html>

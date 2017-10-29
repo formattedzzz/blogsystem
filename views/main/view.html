@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+<div class="papers">
+    <h2>{{contents.title}}</h2>
+    <p class="paperabout">
+        作者：<span class="paperinfo">{{contents.user.username}}</span>-
+        时间：<span class="paperinfo">{{contents.addtime|date('Y-m-d  H:i:s', -8*60)}}</span>-
+        阅读：<span class="paperinfo">{{contents.num}}</span>-
+        分类于：<span class="paperinfo">{{contents.category.name}}</span>-
+        评论：<span class="paperinfo">{{contents.comment.length}}</span>
+    </p>
+    <dfn><p>{{contents.composition}}</p></dfn>
+    <div class="readmore"><a href="javascript:window.history.back()">返回</a></div>
+</div>
+
+<div id="comment">
+    <h3 ><strong>评论 </strong> <span class="much"> 共 <em id="commentCount">0</em> 条评论</span></h3>
+
+
+    <div style="font-size: 22px;">
+        <div>
+            <textarea  name="name" id="commentarea" placeholder="请填写评论"
+            style="height: 150px;width: 100%;"></textarea>
+            <input  type="hidden" id="contentid" name="contentid" value="{{contents.id}}">
+        </div>
+        <button type="submit" id="addcomment" class="btn btn-primary btn-lg">发表评论</button>
+
+    </div>
+    {% if userInfo._id %}
+    {% else %}
+    <h4 class="loginfo" >你还没有登录，请先登录！</h4>
+    {% endif %}
+    {% if contents.comment.length == 0 %}
+    <h4 class="loginfo" >暂无评论，赶紧来指点一波江山吧！</h4>
+    {% endif %}
+    <div id="commentlist">
+        <!--<div>-->
+            <!--<span class="commenter">评论者</span>-->
+            <!--<span class="commenttime">评论时间</span>-->
+        <!--</div>-->
+        <!--<p class="contents">这是评论正文</p>-->
+    </div>
+
+    <div class="pages">
+        <a id="prevpage" style="float: left;"><span>prev</span></a>
+        <span id="currentpage"></span> / <span id="totalpage"></span>
+        <a id="nextpage" style="float: right;"><span>next</span></a>
+    </div>
+
+</div>
+
+
+{% endblock %}

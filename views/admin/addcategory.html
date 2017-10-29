@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<ol class="breadcrumb">
+    <li><a href="#">管理首页</a></li>
+    <li><a href="#">分类管理</a></li>
+</ol>
+
+<form role="form" method="post" style="font-size: 22px;text-align: center">
+    <div class="form-group">
+        <label for="name">分类名称</label>
+        <input type="text" class="form-control" name="name" id="name" placeholder="请填写分类名称">
+    </div>
+    <button type="submit" class="btn btn-primary btn-md">新增分类</button>
+</form>
+
+{% endblock %}

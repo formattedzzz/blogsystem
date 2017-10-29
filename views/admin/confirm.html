@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<div class="jumbotron" >
+    <h1>确认删除？</h1>
+    <p>要不要跟读者们商量一下</p>
+
+    <form role="form" method="post" style="font-size: 22px;text-align: center" action="/admin/category/delete?id={{id}}">
+        <button type="submit" class="btn btn-primary btn-lg">确定！</button>
+        <a class="btn btn-primary btn-lg" href="/admin/category">好吧再想想</a>
+    </form>
+</div>
+
+{% endblock %}

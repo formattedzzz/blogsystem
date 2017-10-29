@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+<ol class="breadcrumb">
+    <li><a href="#">管理首页</a></li>
+    <li><a href="#">添加博文</a></li>
+</ol>
+
+<form role="form" method="post" style="font-size: 22px;text-align: center">
+    <div class="form-group">
+        <label for="name">博文标题</label>
+        <input type="text" class="form-control" name="name" id="name" placeholder="请填写博文名称">
+    </div>
+    <div class="form-group">
+        <label for="category">请选择分类</label>
+        <select name="category" id="category" class="form-control">
+            {% for category in categories %}
+            <option value="{{category.id}}">{{category.name}}</option>
+            {% endfor %}
+
+        </select>
+
+        <div class="form-group" style="margin-top: 20px;font-size: 20px;">
+            <label for="description">请填写简介</label>
+            <textarea name="description" id="description" class="form-control" rows="4"
+                      placeholder="请输入内容简介" style="overflow: auto;"></textarea>
+        </div>
+
+        <div class="form-group" style="margin-top: 20px;font-size: 20px;">
+            <label for="content">请填写正文</label>
+            <textarea name="content" id="content" class="form-control" rows="15" placeholder="请输入内容"></textarea>
+        </div>
+
+    </div>
+    <button type="submit" class="btn btn-primary btn-lg" style="margin-top: 50px;">新增博文</button>
+</form>
+
+{% endblock %}

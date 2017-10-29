@@ -1,0 +1,2 @@
+## 一个基于nodejs、express框架及mongoDB数据库搭建的简易博客系统
+这可能是有史以来最适合nodeJs初探者练手的项目了

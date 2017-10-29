@@ -1,0 +1,13 @@
+.jumbotron {
+    text-align: center;
+}
+.table th, .table td {
+    text-align: center;
+    vertical-align: middle!important;
+}
+.table{
+    table-layout: fixed;
+}
+.pager{
+    font-size: 20px;
+}

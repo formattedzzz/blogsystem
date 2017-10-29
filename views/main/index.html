@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+ {% for content in contents %}
+ <div class="papers">
+     <h2>{{content.title}}</h2>
+     <p class="paperabout">
+         作者：<span class="paperinfo">{{content.user.username}}</span>-
+         时间：<span class="paperinfo">{{content.addtime|date('Y-m-d  H:i:s', -8*60)}}</span>-
+         阅读：<span class="paperinfo">{{content.num}}</span>-
+         分类于：<span class="paperinfo">{{content.category.name}}</span>-
+         评论：<span class="paperinfo">{{content.comment.length}}</span>
+     </p>
+     <dfn><p>description:{{content.description}}</p></dfn>
+     <div class="readmore"><a href="/view?contentid={{content.id}}">阅读全文</a></div>
+ </div>
+ {% endfor %}
+
+<div class="pages">
+    <a href="/?category={{category}}&page={{page-1}}" style="float: left;"><span>prev</span></a>
+    <span>{{page}}</span> / <span>{{pages}}</span>
+    <a href="/?category={{category}}&page={{page+1}}" style="float: right;"><span>next</span></a>
+</div>
+
+{% endblock %}
