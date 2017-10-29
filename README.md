@@ -19,11 +19,9 @@
 - **效果图** ：
 
 ##### 前台
-![image](https://github.com/formattedzzz/blogsystem/blogpic/blog1.png)
+![image](https://github.com/formattedzzz/blogsystem/raw/master/blogpic/blog1.png)
 ![image](https://github.com/formattedzzz/blogsystem/blogpic/blog2.png)
 ##### 后台
-![image](https://github.com/formattedzzz/blogsystem/blogpic/blog3.png)
-![image](https://github.com/formattedzzz/blogsystem/blogpic/blog4.png)
 ![image](https://github.com/formattedzzz/blogsystem/blogpic/blog5.png)
 
 ----------------------------
