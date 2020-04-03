@@ -12,7 +12,7 @@
     "body-parser": "^1.18.2",
     "cookies": "^0.7.1",
     "express": "^4.16.2",
-    "mongoose": "^4.12.4",
+    "mongoose": "^5.9.7",
     "promise": "^8.0.1",
     "swig": "^1.4.2"
   }
